@@ -6,7 +6,7 @@
 /*   By: abisiani <abisiani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 22:35:09 by abisiani          #+#    #+#             */
-/*   Updated: 2025/06/10 23:43:16 by abisiani         ###   ########.fr       */
+/*   Updated: 2025/06/11 00:08:29 by abisiani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,28 @@
 // Because the flags can be disordered. Should the output be left justified? It needs to be 
 // 	parsed before anything is output.
 
-// - = left align the output (default sis to right-align)
+// - = left align the output (default is to right-align)
 // 0 = when width is specified, prepends 0s for numeric types (instead of spaces)
-// . = a max length of the output, depending on the formatting type. 
-// # = 
+// . = a max length of the output, depending on the formatting type
+// # = for x and X types, the text 0x or 0X respectively, is prepended to non-zero numbers
 //   = prepends a space for positive values (ignored if + exists)
 // + = prepends a plus sign for a positive value
 
 // Find length of formatter
 // strchr for each, setting local flags
-// if + ~prepend plusses, else if ' ' prepend spaces
+// if '+' prepend plusses, else if ' ' prepend spaces
+
+// If typeof() available to us?
 
 // How the fuck can i do this with max 5 local vars?
 // Necessary format per format specifier:
 // 		%[flags][width][.precision] type
-// 
-
+// Find % and find the type
+// Look back to find the . and set 'precision' var
+// Look back to find a number and set 'width' var
+// Look back and gather up all chars before % as a string and set 'flags' var
+// write_chars(char type, long(?) precision, width, flags)
+// What's the max size precision?
 
 int	ft_printf(const char *format, ...)
 {
