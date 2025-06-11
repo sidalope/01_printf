@@ -6,7 +6,7 @@
 #    By: abisiani <abisiani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 22:59:16 by abisiani          #+#    #+#              #
-#    Updated: 2025/06/10 22:35:01 by abisiani         ###   ########.fr        #
+#    Updated: 2025/06/11 17:34:38 by abisiani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,8 @@ AR=ar rcs
 CC=cc
 
 NAME=libftprintf.a
+
+TEST_EXECUTABLE=printf
 
 SRC=
 
@@ -34,13 +36,13 @@ $(NAME): $(OBJ_ALL)
 	$(CC) $(CFLAGS) -c $^ -o $@
 
 clean:
-	rm -f $(OBJ) $(OBJBONUS)
+	rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(TEST_EXECUTABLE)
 
 re: fclean all
 
-# test: re
-# 	$(CC) $(CFLAGS) -o libft libft.c -L. -lft -lbsd
-# 	./libft
+test: re
+	$(CC) $(CFLAGS) -o $(TEST_EXECUTABLE) ft_printf.c -L. -lftprintf -lbsd
+	./$(TEST_EXECUTABLE)

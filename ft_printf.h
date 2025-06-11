@@ -6,10 +6,10 @@
 /*   By: abisiani <abisiani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 22:37:02 by abisiani          #+#    #+#             */
-/*   Updated: 2025/06/10 22:41:12 by abisiani         ###   ########.fr       */
+/*   Updated: 2025/06/11 16:53:35 by abisiani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdarg.h>
+#include <stdio.h>
+
+int	ft_printf(const char *format, ...);

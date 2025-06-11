@@ -6,7 +6,7 @@
 /*   By: abisiani <abisiani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 22:35:09 by abisiani          #+#    #+#             */
-/*   Updated: 2025/06/11 00:08:29 by abisiani         ###   ########.fr       */
+/*   Updated: 2025/06/11 18:31:04 by abisiani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 
 // How the fuck can i do this with max 5 local vars?
 // Necessary format per format specifier:
-// 		%[flags][width][.precision] type
+// 		%[flags][width][.][precision] type
 // Find % and find the type
 // Look back to find the . and set 'precision' var
 // Look back to find a number and set 'width' var
@@ -44,7 +44,46 @@
 // write_chars(char type, long(?) precision, width, flags)
 // What's the max size precision?
 
+// Test behaviour of original printf
+
+// Update libft
+
+#include "ft_printf.h"
+
 int	ft_printf(const char *format, ...)
 {
+	(void)format;
+	return (0);
+}
+
+int	main(int argc, char* argv[])
+{
+	if (argc == 3)
+	{
+		printf(argv[1], argv[2]);
+		ft_printf(argv[1], argv[2]);
+	}
+	else
+	{
+		// type
+		// .precision
+		// width
+		// flags
+
+		// One +, -, ., # or 0, not multiple
+		// + and 0 order does not matter
+		// + and - order does not matter
+		// negative values with 0 print as -003
+		// No 0 and - flags together
+		// No ' ' and + flags together
+		// No ' ' and %X specifier together
+		// Some flags and types are incompatible
+		// Precision can be empty
+		// Precision is only for strings but should not fail for numbers
+		// No flags that are not expected - cspdiuxX%
+		
+		printf("|%##5.2X|\n",321);
+		printf("|%10d|\n", 1234567890);
+	}
 	return (0);
 }
