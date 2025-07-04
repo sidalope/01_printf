@@ -3,13 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abisiani <abisiani@student.42.fr>          +#+  +:+       +#+        */
+/*   By: frckles <frckles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 22:37:02 by abisiani          #+#    #+#             */
-/*   Updated: 2025/06/11 16:53:35 by abisiani         ###   ########.fr       */
+/*   Updated: 2025/07/04 14:21:54 by frckles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdarg.h>
 #include <stdio.h>
+#include <unistd.h>
 
 int	ft_printf(const char *format, ...);

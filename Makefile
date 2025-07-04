@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: abisiani <abisiani@student.42.fr>          +#+  +:+       +#+         #
+#    By: frckles <frckles@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 22:59:16 by abisiani          #+#    #+#              #
-#    Updated: 2025/06/11 17:34:38 by abisiani         ###   ########.fr        #
+#    Updated: 2025/07/04 14:22:48 by frckles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,5 +44,5 @@ fclean: clean
 re: fclean all
 
 test: re
-	$(CC) $(CFLAGS) -o $(TEST_EXECUTABLE) ft_printf.c -L. -lftprintf -lbsd
-	./$(TEST_EXECUTABLE)
+	$(CC) $(CFLAGS) -o $(TEST_EXECUTABLE) ft_printf.c -L. -lftprintf
+	./$(TEST_EXECUTABLE) "Test me\n" "and me" 
