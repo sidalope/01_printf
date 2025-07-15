@@ -6,7 +6,7 @@
 /*   By: frckles <frckles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 22:35:09 by abisiani          #+#    #+#             */
-/*   Updated: 2025/07/04 14:22:27 by frckles          ###   ########.fr       */
+/*   Updated: 2025/07/15 14:56:56 by frckles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 // c: Used to print a single character. For example, printf("%c", 'A'); will print A.
 // s: Used to print a string. For example, printf("%s", "Hello"); will print Hello.
-// p: Used to print the address of a variable in hexadecimal format. For example, printf("%p", &var); will print the memory address of var.
+// p: Used to print the address of a variable in hexadecimal format. For example, pbrintf("%p", &var); will print the memory address of var.
 // d: Used to print a signed integer. For example, printf("%d", 10); will print 10.
 // i: Used to print a signed integer, similar to %d. For example, printf("%i", 10); will print 10.
 // u: Used to print an unsigned integer. For example, printf("%u", 10); will print 10.
@@ -31,29 +31,48 @@
 
 #include "ft_printf.h"
 
+int	parse_format_specifier(const char *format, va_list args)
+{
+	int len;
+
+	len = 0;
+	if (*format == 'c')
+		len = print_c(va_arg(args, int));
+	else if (*format == 's')
+		len = print_s(va_arg(args, char *));
+	else if (*format == 'p')
+		len = print_p(va_arg(args, void *));
+	// else if (*format == 'd' || *format == 'i')
+	// 	ft_putnbr_fd(va_arg(args, int), 1);
+	// else if (*format == 'u')
+	// 	ft_putnbr_fd(va_arg(args, unsigned int), 1);
+	// else if (*f_specifier == 'x')
+	// 	printf("x");
+	// else if (*f_specifier == 'X')
+	// 	printf("X");
+	// else if (*f_specifier == '%')
+	// 	printf("%%");
+	return (len);
+}
+
 int	ft_printf(const char *format, ...)
 {
-	(void)format;
+	size_t count;
 	va_list	args;
-	va_start(args, format);
 
-	// For every character in the string, if it's a %, check what comes after and parse, else write it
+	count = 0;
+	va_start(args, format);
 	while (*format)
 	{
 		if (*format != '%')
+		{
 			write(1, format, 1);
+			count++;
+		}
+		else
+			count += parse_format_specifier(++format, args);
 		format++;
 	}
 	va_end(args);
-	return (0);
-}
-
-int	main(int argc, char* argv[])
-{
-	if (argc == 3)
-	{
-		printf(argv[1], argv[2]);
-		ft_printf(argv[1], argv[2]);
-	}
-	return (0);
+	return (count);
 }

@@ -6,7 +6,7 @@
 #    By: frckles <frckles@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 22:59:16 by abisiani          #+#    #+#              #
-#    Updated: 2025/07/04 14:22:48 by frckles          ###   ########.fr        #
+#    Updated: 2025/07/15 12:17:01 by frckles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,16 +20,21 @@ CC=cc
 
 NAME=libftprintf.a
 
-TEST_EXECUTABLE=printf
+TEST_EXECUTABLE=tests
 
-SRC=
+SRC=ft_printf.c print_c.c print_s.c print_p.c #print_d.c print_i.c \
+	print_u.c print_x.c print_X.c print_%.c
 
 OBJ=$(SRC:.c=.o)
 
+LIBFT=libft/libft.a
+
 all: $(NAME)
 
+libft/libft.a:
+	make -C libft all
 
-$(NAME): $(OBJ_ALL)
+$(NAME): $(OBJ) $(LIBFT)
 	$(AR) $@ $^
 
 %.o: %.c
@@ -37,12 +42,14 @@ $(NAME): $(OBJ_ALL)
 
 clean:
 	rm -f $(OBJ)
+	make -C libft clean
 
 fclean: clean
 	rm -f $(NAME) $(TEST_EXECUTABLE)
+	make -C libft fclean
 
 re: fclean all
 
 test: re
-	$(CC) $(CFLAGS) -o $(TEST_EXECUTABLE) ft_printf.c -L. -lftprintf
-	./$(TEST_EXECUTABLE) "Test me\n" "and me" 
+	$(CC) $(CFLAGS) -o $(TEST_EXECUTABLE) tests.c -L. -lftprintf -Llibft -lft
+	./$(TEST_EXECUTABLE)

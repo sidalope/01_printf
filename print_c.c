@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   print_c.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frckles <frckles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/10 22:37:02 by abisiani          #+#    #+#             */
-/*   Updated: 2025/07/15 12:08:26 by frckles          ###   ########.fr       */
+/*   Created: 2025/07/11 17:05:34 by frckles           #+#    #+#             */
+/*   Updated: 2025/07/11 17:22:26 by frckles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdio.h>
-#include <unistd.h>
-#include "libft/libft.h"
+#include "ft_printf.h"
 
-int	ft_printf(const char *format, ...);
-int print_c(int c);
-int print_s(char *s);
-int print_p(void *ptr);
-int print_d(int n);
-int print_i(int n);
-int print_u(unsigned int n);
-int print_x(unsigned int n);
-int print_X(unsigned int n);
-int print_perc(void);
+int print_c(int c)
+{
+	ft_putchar_fd(c, 1);
+	return (1);
+}
