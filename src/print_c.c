@@ -6,13 +6,13 @@
 /*   By: frckles <frckles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/11 17:05:34 by frckles           #+#    #+#             */
-/*   Updated: 2025/07/16 16:35:47 by frckles          ###   ########.fr       */
+/*   Updated: 2025/07/16 18:16:59 by frckles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int print_c(int c)
+int	print_c(int c)
 {
 	ft_putchar_fd(c, 1);
 	return (1);

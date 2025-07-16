@@ -24,7 +24,7 @@ TEST_EXECUTABLE=tests
 
 SRC_DIR = src
 SRC_FILES = intlen.c put_unsnbr_fd.c ft_printf.c print_c.c print_s.c print_p.c print_di.c \
-	print_u.c print_x.c print_X.c
+	print_u.c print_x.c print_x_cap.c
 SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
 OBJ=$(SRC:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: frckles <frckles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 15:16:44 by frckles           #+#    #+#             */
-/*   Updated: 2025/07/16 17:15:34 by frckles          ###   ########.fr       */
+/*   Updated: 2025/07/16 18:32:36 by frckles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	print_u(unsigned int n)
 {
-	int len;
-	
+	int	len;
+
 	len = uintlen(n);
 	put_unsnbr_fd(n, 1);
 	return (len);

@@ -6,16 +6,16 @@
 /*   By: frckles <frckles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 14:36:25 by frckles           #+#    #+#             */
-/*   Updated: 2025/07/16 16:35:48 by frckles          ###   ########.fr       */
+/*   Updated: 2025/07/16 18:16:41 by frckles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int print_di(int n)
+int	print_di(int n)
 {
-	int len;
-	
+	int	len;
+
 	len = intlen(n);
 	ft_putnbr_fd(n, 1);
 	return (len);

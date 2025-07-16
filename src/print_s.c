@@ -6,15 +6,15 @@
 /*   By: frckles <frckles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 11:52:38 by frckles           #+#    #+#             */
-/*   Updated: 2025/07/16 16:35:55 by frckles          ###   ########.fr       */
+/*   Updated: 2025/07/16 18:14:19 by frckles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int print_s(char *s)
+int	print_s(char *s)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	while (*s)
