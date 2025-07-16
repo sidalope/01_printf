@@ -1,22 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_u.c                                          :+:      :+:    :+:   */
+/*   print_X.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frckles <frckles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/16 15:16:44 by frckles           #+#    #+#             */
-/*   Updated: 2025/07/16 17:15:34 by frckles          ###   ########.fr       */
+/*   Created: 2025/07/16 17:52:43 by frckles           #+#    #+#             */
+/*   Updated: 2025/07/16 17:54:20 by frckles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_u(unsigned int n)
+int print_X(unsigned int n)
 {
-	int len;
-	
-	len = uintlen(n);
-	put_unsnbr_fd(n, 1);
+	int		i;
+	int		len;
+	int		started;
+
+	i = sizeof(unsigned int) * 2 - 1;
+	len = 0;
+	started = 0;
+    if (n == 0)
+	{
+		write(1, "0", 1);
+		return (1);
+	}
+	while (i >= 0)
+	{
+		if(started || "0123456789ABCDEF"[(n >> (i * 4)) & 0xF] != '0')
+		{
+			write(1, &"0123456789ABCDEF"[(n >> (i * 4)) & 0xF], 1);
+			len++;
+			started = 1;
+		}
+		i--;
+	}
 	return (len);
 }

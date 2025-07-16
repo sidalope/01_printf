@@ -344,11 +344,7 @@ void test_perc()
 	int len_ft = 0;
 	int len = 0;
 
-	ft_printf("~~~ Test % ~~~\n");
-
-	len_ft = ft_printf("~~~ Test %% \n~~~");
-	len = printf("~~~ Test %% \n~~~");
-	assert(len_ft == len);
+	ft_printf("~~~ Test %% ~~~\n");
 
 	len_ft = ft_printf("%%\n");
 	len = printf("%%\n");
@@ -386,22 +382,53 @@ void test_perc()
 	len = printf("Start%%End\n");
 	assert(len_ft == len);
 
-	len_ft = ft_printf("Just a percent: %%\n");
-	len = printf("Just a percent: %%\n");
-	assert(len_ft == len);
-
 	printf("\n");
 }
 
 void test_printf()
 {
-	// int len_ft = 0;
-	// int len = 0;
+	int len_ft = 0;
+	int len = 0;
+
+	ft_printf("~~~ Test cspdiuxX% ~~~\n");
+
+	len_ft = ft_printf("A:%c | S:%s | P:%p | D:%d | I:%i | U:%u | X:%x | XX:%X | percent:%%\n", 'A', "hello", (void*)0x1234, -42, 42, 42U, 255, 255);
+	len = printf("A:%c | S:%s | P:%p | D:%d | I:%i | U:%u | X:%x | XX:%X | percent:%%\n", 'A', "hello", (void*)0x1234, -42, 42, 42U, 255, 255);
+	assert(len_ft == len);
+
+	len_ft = ft_printf("RandomB %c, string=%s, ptr->%p, d=%d, i=%i, u=%u, x=%x, X=%X, %% done\n", 'B', "world", (void*)0, 0, 0, 0U, 0, 0);
+	len = printf("RandomB %c, string=%s, ptr->%p, d=%d, i=%i, u=%u, x=%x, X=%X, %% done\n", 'B', "world", (void*)0, 0, 0, 0U, 0, 0);
+	assert(len_ft == len);
+
+	len_ft = ft_printf("C test: [%c] | [%s] | [%p] | [%d] | [%i] | [%u] | [%x] | [%X] | [%%]\n", 'C', "", (void*)0xDEADBEEF, 2147483647, -2147483647, 4294967295U, 0xabcdef, 0xABCDEF);
+	len = printf("C test: [%c] | [%s] | [%p] | [%d] | [%i] | [%u] | [%x] | [%X] | [%%]\n", 'C', "", (void*)0xDEADBEEF, 2147483647, -2147483647, 4294967295U, 0xabcdef, 0xABCDEF);
+	assert(len_ft == len);
+
+	len_ft = ft_printf("D: char=%c, str=%s, ptr=%p, d=%d, i=%i, u=%u, x=%x, X=%X, percent=%%\n", 'D', "test", (void*)&ft_printf, 123, -123, 123U, 123, 123);
+	len = printf("D: char=%c, str=%s, ptr=%p, d=%d, i=%i, u=%u, x=%x, X=%X, percent=%%\n", 'D', "test", (void*)&ft_printf, 123, -123, 123U, 123, 123);
+	assert(len_ft == len);
+
+	len_ft = ft_printf("E/42/%c/%s/%p/%d/%i/%u/%x/%X/%%/end\n", 'E', "42", (void*)test_perc, -1, 1, 1U, 1, 1);
+	len = printf("E/42/%c/%s/%p/%d/%i/%u/%x/%X/%%/end\n", 'E', "42", (void*)test_perc, -1, 1, 1U, 1, 1);
+	assert(len_ft == len);
+
+	len_ft = ft_printf("foo%c bar%s baz%p d%d i%i u%u x%x X%X %%\n", 'F', "foo", (void*)-1, 1000, -1000, 1000U, 0x10, 0x10);
+	len = printf("foo%c bar%s baz%p d%d i%i u%u x%x X%X %%\n", 'F', "foo", (void*)-1, 1000, -1000, 1000U, 0x10, 0x10);
+	assert(len_ft == len);
+
+	len_ft = ft_printf("G test: c=%c, s=%s, p=%p, d=%d, i=%i, u=%u, x=%x, X=%X, percent=%%\n", 'G', "bar", (void*)0x0, 32767, -32768, 65535U, 0x7FFF, 0x7FFF);
+	len = printf("G test: c=%c, s=%s, p=%p, d=%d, i=%i, u=%u, x=%x, X=%X, percent=%%\n", 'G', "bar", (void*)0x0, 32767, -32768, 65535U, 0x7FFF, 0x7FFF);
+	assert(len_ft == len);
+
+	len_ft = ft_printf("I:%c lorem:%s ptr:%p d:%d i:%i u:%u x:%x X:%X %%\n", 'I', "lorem", (void*)0xCAFEBABE, 42, -42, 42U, 0x42, 0x42);
+	len = printf("I:%c lorem:%s ptr:%p d:%d i:%i u:%u x:%x X:%X %%\n", 'I', "lorem", (void*)0xCAFEBABE, 42, -42, 42U, 0x42, 0x42);
+	assert(len_ft == len);
+
+	len_ft = ft_printf("J/ipsum/%c/%s/%p/%d/%i/%u/%x/%X/%%/!\n", 'J', "ipsum", (void*)NULL, -2147483647, 2147483647, 0U, 0x0, 0x0);
+	len = printf("J/ipsum/%c/%s/%p/%d/%i/%u/%x/%X/%%/!\n", 'J', "ipsum", (void*)NULL, -2147483647, 2147483647, 0U, 0x0, 0x0);
+
 	printf("\n");
 }
-
-
-
 
 int	main(int argc, char* argv[])
 {

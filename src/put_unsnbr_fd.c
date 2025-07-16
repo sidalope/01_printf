@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   put_unsnbr_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frckles <frckles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/10 22:37:02 by abisiani          #+#    #+#             */
-/*   Updated: 2025/07/16 17:15:40 by frckles          ###   ########.fr       */
+/*   Created: 2025/07/16 17:05:40 by frckles           #+#    #+#             */
+/*   Updated: 2025/07/16 17:15:30 by frckles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include "../libft/libft.h"
+#include "ft_printf.h"
 
-int		ft_printf(const char *format, ...);
-int 	intlen(int);
-int 	uintlen(unsigned int);
-void	put_unsnbr_fd(unsigned int n, int fd);
-int 	print_c(int c);
-int 	print_s(char *s);
-int 	print_p(void *ptr);
-int 	print_di(int n);
-int 	print_u(unsigned int n);
-int 	print_x(unsigned int n);
-int 	print_X(unsigned int n);
-int 	print_perc(void);
+void	put_unsnbr_fd(unsigned int n, int fd)
+{
+	unsigned int	num;
+
+	num = 0;
+	if (n > 9)
+		put_unsnbr_fd(n / 10, fd);
+	num = n % 10 + '0';
+	write(fd, &num, 1);
+}
