@@ -6,7 +6,7 @@
 /*   By: frckles <frckles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 22:35:09 by abisiani          #+#    #+#             */
-/*   Updated: 2025/07/15 14:56:56 by frckles          ###   ########.fr       */
+/*   Updated: 2025/07/16 15:50:40 by frckles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ int	parse_format_specifier(const char *format, va_list args)
 		len = print_s(va_arg(args, char *));
 	else if (*format == 'p')
 		len = print_p(va_arg(args, void *));
-	// else if (*format == 'd' || *format == 'i')
-	// 	ft_putnbr_fd(va_arg(args, int), 1);
-	// else if (*format == 'u')
-	// 	ft_putnbr_fd(va_arg(args, unsigned int), 1);
+	else if (*format == 'd' || *format == 'i')
+		len = print_di(va_arg(args, int));
+	else if (*format == 'u')
+		len = print_u(va_arg(args, int));
 	// else if (*f_specifier == 'x')
 	// 	printf("x");
 	// else if (*f_specifier == 'X')

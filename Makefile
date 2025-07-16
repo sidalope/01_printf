@@ -6,7 +6,7 @@
 #    By: frckles <frckles@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 22:59:16 by abisiani          #+#    #+#              #
-#    Updated: 2025/07/15 12:17:01 by frckles          ###   ########.fr        #
+#    Updated: 2025/07/16 16:41:12 by frckles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,9 @@ NAME=libftprintf.a
 
 TEST_EXECUTABLE=tests
 
-SRC=ft_printf.c print_c.c print_s.c print_p.c #print_d.c print_i.c \
-	print_u.c print_x.c print_X.c print_%.c
+SRC_DIR = src
+SRC_FILES = intlen.c ft_printf.c print_c.c print_s.c print_p.c print_di.c print_u.c
+SRC = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
 OBJ=$(SRC:.c=.o)
 
@@ -38,7 +39,7 @@ $(NAME): $(OBJ) $(LIBFT)
 	$(AR) $@ $^
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $^ -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)

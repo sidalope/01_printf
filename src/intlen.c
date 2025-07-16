@@ -1,27 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   intlen.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: frckles <frckles@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/10 22:37:02 by abisiani          #+#    #+#             */
-/*   Updated: 2025/07/15 12:08:26 by frckles          ###   ########.fr       */
+/*   Created: 2025/07/16 15:30:02 by frckles           #+#    #+#             */
+/*   Updated: 2025/07/16 16:35:44 by frckles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include <stdio.h>
-#include <unistd.h>
-#include "libft/libft.h"
+#include "ft_printf.h"
 
-int	ft_printf(const char *format, ...);
-int print_c(int c);
-int print_s(char *s);
-int print_p(void *ptr);
-int print_d(int n);
-int print_i(int n);
-int print_u(unsigned int n);
-int print_x(unsigned int n);
-int print_X(unsigned int n);
-int print_perc(void);
+int	intlen(int n)
+{
+	int	count;
+
+	count = 0;
+	if (n < 0 || n == 0)
+		count++;
+	while (n)
+	{
+		n /= 10;
+		count++;
+	}
+	return (count);
+}
+
+int	uintlen(unsigned int n)
+{
+	int	count;
+
+	count = 0;
+	if (n == 0)
+		count++;
+	while (n)
+	{
+		n /= 10;
+		count++;
+	}
+	return (count);
+}

@@ -1,5 +1,6 @@
-#include "ft_printf.h"
+#include <stdio.h>
 #include <assert.h>
+#include "src/ft_printf.h"
 
 void test_c()
 {
@@ -146,12 +147,12 @@ void test_p()
 	printf("\n");
 }
 
-void test_d()
+void test_di()
 {
 	int len_ft = 0;
 	int len = 0;
 
-	ft_printf("~~~ Test d~~~\n");
+	ft_printf("~~~ Test d & i~~~\n");
 
 	len_ft = ft_printf("%d\n", 0);
 	len = printf("%d\n", 0);
@@ -181,52 +182,10 @@ void test_d()
 	len = printf("Min: %d\n", -2147483647);
 	assert(len_ft == len);
 
-	len_ft = ft_printf("Sum: %d\n\n", 100 + 200);
-	len = printf("Sum: %d\n\n", 100 + 200);
+	len_ft = ft_printf("Sum: %d\n", 100 + 200);
+	len = printf("Sum: %d\n", 100 + 200);
 	assert(len_ft == len);
 
-	printf("\n");
-}
-
-void test_i()
-{
-	int len_ft = 0;
-	int len = 0;
-
-	ft_printf("~~~ Test i~~~\n");
-	
-	len_ft = ft_printf("%i\n", 0);
-	len = printf("%i\n", 0);
-	assert(len_ft == len);
-
-	len_ft = ft_printf("%i\n", 1);
-	len = printf("%i\n", 1);
-	assert(len_ft == len);
-
-	len_ft = ft_printf("%i\n", -1);
-	len = printf("%i\n", -1);
-	assert(len_ft == len);
-
-	len_ft = ft_printf("%i\n", 12345);
-	len = printf("%i\n", 12345);
-	assert(len_ft == len);
-
-	len_ft = ft_printf("%i\n", -54321);
-	len = printf("%i\n", -54321);
-	assert(len_ft == len);
-
-	len_ft = ft_printf("Max: %i\n", 2147483647);
-	len = printf("Max: %i\n", 2147483647);
-	assert(len_ft == len);
-
-	len_ft = ft_printf("Min: %i\n", -2147483647);
-	len = printf("Min: %i\n", -2147483647);
-	assert(len_ft == len);
-
-	len_ft = ft_printf("Sum: %i\n\n", 100 + 200);
-	len = printf("Sum: %i\n\n", 100 + 200);
-	assert(len_ft == len);
-	
 	printf("\n");
 }
 
@@ -235,7 +194,7 @@ void test_u()
 	int len_ft = 0;
 	int len = 0;
 
-	ft_printf("~~~ Test u \n~~~");
+	ft_printf("~~~ Test u ~~~\n");
 
 	len_ft = ft_printf("%u\n", 0U);
 	len = printf("%u\n", 0U);
@@ -273,8 +232,8 @@ void test_u()
 	len = printf("Big: %u\n", 4000000000U);
 	assert(len_ft == len);
 
-	len_ft = ft_printf("Small: %u\n\n", 42U);
-	len = printf("Small: %u\n\n", 42U);
+	len_ft = ft_printf("Small: %u\n", 42U);
+	len = printf("Small: %u\n", 42U);
 	assert(len_ft == len);
 	
 	printf("\n");
@@ -285,7 +244,7 @@ void test_x()
 	int len_ft = 0;
 	int len = 0;
 	
-	ft_printf("~~~ Test x \n~~~");
+	ft_printf("~~~ Test x ~~~\n");
 
 	len_ft = ft_printf("%x\n", 0);
 	len = printf("%x\n", 0);
@@ -323,8 +282,8 @@ void test_x()
 	len = printf("Big: %x\n", 0xABCDEF);
 	assert(len_ft == len);
 
-	len_ft = ft_printf("Small: %x\n\n", 0x1);
-	len = printf("Small: %x\n\n", 0x1);
+	len_ft = ft_printf("Small: %x\n", 0x1);
+	len = printf("Small: %x\n", 0x1);
 	assert(len_ft == len);
 	
 	printf("\n");
@@ -335,7 +294,7 @@ void test_X()
 	int len_ft = 0;
 	int len = 0;
 
-	ft_printf("~~~ Test X \n~~~");
+	ft_printf("~~~ Test X ~~~\n");
 	
 	len_ft = ft_printf("%X\n", 0);
 	len = printf("%X\n", 0);
@@ -373,8 +332,8 @@ void test_X()
 	len = printf("Big: %X\n", 0xABCDEF);
 	assert(len_ft == len);
 
-	len_ft = ft_printf("Small: %X\n\n", 0x1);
-	len = printf("Small: %X\n\n", 0x1);
+	len_ft = ft_printf("Small: %X\n", 0x1);
+	len = printf("Small: %X\n", 0x1);
 	assert(len_ft == len);
 	
 	printf("\n");
@@ -385,7 +344,7 @@ void test_perc()
 	int len_ft = 0;
 	int len = 0;
 
-	ft_printf("~~~ Test % \n~~~");
+	ft_printf("~~~ Test % ~~~\n");
 
 	len_ft = ft_printf("~~~ Test %% \n~~~");
 	len = printf("~~~ Test %% \n~~~");
@@ -427,8 +386,8 @@ void test_perc()
 	len = printf("Start%%End\n");
 	assert(len_ft == len);
 
-	len_ft = ft_printf("Just a percent: %%\n\n");
-	len = printf("Just a percent: %%\n\n");
+	len_ft = ft_printf("Just a percent: %%\n");
+	len = printf("Just a percent: %%\n");
 	assert(len_ft == len);
 
 	printf("\n");
@@ -460,8 +419,7 @@ int	main(int argc, char* argv[])
 	printf("\n\nthis is the output of p: %p\n", test);
 	ft_printf("this is my output for p: %p\n", test);
 	test_p();
-	test_d();
-	test_i();
+	test_di();
 	test_u();
 	test_x();
 	test_X();
