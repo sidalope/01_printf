@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-	#                                                         :::      ::::::::    #
+#                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: frckles <frckles@student.42.fr>            +#+  +:+       +#+         #
+#    By: abisani <abisani@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 22:59:16 by abisiani          #+#    #+#              #
-#    Updated: 2025/07/16 17:03:22 by frckles          ###   ########.fr        #
+#    Updated: 2025/08/31 12:54:37 by abisani          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 
 CFLAGS=-Wall -Werror -Wextra
 
-AR=ar rcs
+AR=ar -rcs
 
 CC=cc
 
@@ -37,7 +37,9 @@ libft/libft.a:
 	make -C libft all
 
 $(NAME): $(OBJ) $(LIBFT)
-	$(AR) $@ $^
+	@cp $(LIBFT) .
+	@mv libft.a $(NAME)
+	$(AR) $@ $(OBJ)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
