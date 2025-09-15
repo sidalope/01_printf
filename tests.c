@@ -2,6 +2,18 @@
 #include <assert.h>
 #include "src/ft_printf.h"
 
+void test_null()
+{
+	int len_ft = 0;
+	int len = 0;
+	
+	ft_printf("~~~ Test NULL ~~~\n");
+	
+	len_ft = ft_printf("NULL %s NULL\n", NULL);
+	len = printf("NULL %s NULL\n", NULL);
+	assert(len_ft == len);
+}
+
 void test_c()
 {
 	int len_ft = 0;
@@ -441,6 +453,7 @@ int	main(int argc, char* argv[])
 
 	char	*test = "testing";
 	
+	test_null();
 	test_c();
 	test_s();
 	printf("\n\nthis is the output of p: %p\n", test);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abisani <abisani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: abisiani <abisiani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 22:35:09 by abisiani          #+#    #+#             */
-/*   Updated: 2025/08/31 12:22:26 by abisani          ###   ########.fr       */
+/*   Updated: 2025/09/15 11:22:26 by abisiani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	parse_format_specifier(const char *format, va_list args)
 	if (*format == 'c')
 		len = print_c(va_arg(args, int));
 	else if (*format == 's')
-		len = print_s(va_arg(args, char *));
+		len = print_s(va_arg(args, void *));
 	else if (*format == 'p')
 		len = print_p(va_arg(args, void *));
 	else if (*format == 'd' || *format == 'i')

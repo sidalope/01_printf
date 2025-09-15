@@ -6,22 +6,26 @@
 /*   By: abisiani <abisiani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 11:52:38 by abisiani          #+#    #+#             */
-/*   Updated: 2025/08/20 18:35:06 by abisiani         ###   ########.fr       */
+/*   Updated: 2025/09/15 11:38:27 by abisiani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_s(char *s)
+int	print_s(void *s)
 {
-	int	len;
+	int		len;
+	char	*str;
 
 	len = 0;
-	while (*s)
+	if ((size_t)s == 0)
+		return (write(2, "Error: %s encountered (nil)", 27), 0);
+	str = (char *) s;
+		while (*str)
 	{
-		write(1, s, 1);
+		write(1, str, 1);
 		len++;
-		s++;
+		str++;
 	}
 	return (len);
 }

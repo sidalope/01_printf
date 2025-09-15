@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abisani <abisani@student.42.fr>            +#+  +:+       +#+        */
+/*   By: abisiani <abisiani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 22:37:02 by abisiani          #+#    #+#             */
-/*   Updated: 2025/08/31 12:16:33 by abisani          ###   ########.fr       */
+/*   Updated: 2025/09/15 11:24:26 by abisiani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		intlen(int n);
 int		uintlen(unsigned int n);
 void	put_unsnbr_fd(unsigned int n, int fd);
 int		print_c(int c);
-int		print_s(char *s);
+int		print_s(void *);
 int		print_p(void *ptr);
 int		print_di(int n);
 int		print_u(unsigned int n);
