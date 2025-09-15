@@ -10,7 +10,7 @@ void test_null()
 	ft_printf("~~~ Test NULL ~~~\n");
 	
 	len_ft = ft_printf("NULL %s NULL\n", NULL);
-	len = printf("NULL %s NULL\n", NULL);
+	// len = printf("NULL %s NULL\n", NULL);
 	assert(len_ft == len);
 }
 

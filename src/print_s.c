@@ -6,7 +6,7 @@
 /*   By: abisiani <abisiani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 11:52:38 by abisiani          #+#    #+#             */
-/*   Updated: 2025/09/15 11:38:27 by abisiani         ###   ########.fr       */
+/*   Updated: 2025/09/15 12:01:13 by abisiani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int	print_s(void *s)
 
 	len = 0;
 	if ((size_t)s == 0)
-		return (write(2, "Error: %s encountered (nil)", 27), 0);
+		return (-1);
 	str = (char *) s;
-		while (*str)
+	while (*str)
 	{
 		write(1, str, 1);
 		len++;

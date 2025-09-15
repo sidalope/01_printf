@@ -6,7 +6,7 @@
 /*   By: abisiani <abisiani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 22:35:09 by abisiani          #+#    #+#             */
-/*   Updated: 2025/09/15 11:22:26 by abisiani         ###   ########.fr       */
+/*   Updated: 2025/09/15 12:00:51 by abisiani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,10 @@ int	ft_printf(const char *format, ...)
 {
 	size_t	count;
 	va_list	args;
+	int		err;
 
 	count = 0;
+	err = 0;
 	va_start(args, format);
 	while (*format)
 	{
@@ -54,7 +56,12 @@ int	ft_printf(const char *format, ...)
 			count++;
 		}
 		else
-			count += parse_format_specifier(++format, args);
+		{
+			err = parse_format_specifier(++format, args);
+			if (err < 0)
+				return (-1);
+			count += err;
+		}
 		format++;
 	}
 	va_end(args);
