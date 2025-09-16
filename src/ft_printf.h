@@ -6,7 +6,7 @@
 /*   By: abisiani <abisiani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 22:37:02 by abisiani          #+#    #+#             */
-/*   Updated: 2025/09/15 11:47:16 by abisiani         ###   ########.fr       */
+/*   Updated: 2025/09/16 11:47:50 by abisiani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		intlen(int n);
 int		uintlen(unsigned int n);
 void	put_unsnbr_fd(unsigned int n, int fd);
 int		print_c(int c);
-int		print_s(void *s);
+int		print_s(char *s);
 int		print_p(void *ptr);
 int		print_di(int n);
 int		print_u(unsigned int n);

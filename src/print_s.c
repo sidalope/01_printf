@@ -6,26 +6,24 @@
 /*   By: abisiani <abisiani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 11:52:38 by abisiani          #+#    #+#             */
-/*   Updated: 2025/09/15 12:01:13 by abisiani         ###   ########.fr       */
+/*   Updated: 2025/09/16 11:50:50 by abisiani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_s(void *s)
+int	print_s(char *s)
 {
 	int		len;
-	char	*str;
-
+	
 	len = 0;
-	if ((size_t)s == 0)
+	if (s == NULL)
 		return (-1);
-	str = (char *) s;
-	while (*str)
+	while (*s)
 	{
-		write(1, str, 1);
+		write(1, s, 1);
 		len++;
-		str++;
+		s++;
 	}
 	return (len);
 }

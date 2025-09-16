@@ -38,10 +38,6 @@ void test_c()
 	len = printf("%c\n", 'A');
 	assert(len_ft == len);
 
-	len_ft = ft_printf("%c\n", 'A');
-	len = printf("%c\n", 'A');
-	assert(len_ft == len);
-
 	len_ft = ft_printf("%c\n", 'z');
 	len = printf("%c\n", 'z');
 	assert(len_ft == len);
@@ -462,19 +458,11 @@ void test_printf()
 int	main(int argc, char* argv[])
 {
 	// char	*f_specs = "cspdiuxX%";
-	(void)argc;
 	if (argc >= 2)
-	{
 		ft_printf(argv[1]);
-	}
-
-	char	*test = "testing";
-	
 	test_null();
 	test_c();
 	test_s();
-	printf("\n\nthis is the output of p: %p\n", test);
-	ft_printf("this is my output for p: %p\n", test);
 	test_p();
 	test_di();
 	test_u();

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: abisani <abisani@student.42.fr>            +#+  +:+       +#+         #
+#    By: abisiani <abisiani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/07 22:59:16 by abisiani          #+#    #+#              #
-#    Updated: 2025/08/31 12:54:37 by abisani          ###   ########.fr        #
+#    Updated: 2025/09/16 11:36:19 by abisiani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,5 +55,5 @@ fclean: clean
 re: fclean all
 
 test: re
-	$(CC) $(CFLAGS) -o $(TEST_EXECUTABLE) tests.c -L. -lftprintf -Llibft -lft
+	$(CC) -g $(CFLAGS) -o $(TEST_EXECUTABLE) tests.c -L. -lftprintf -Llibft -lft
 	./$(TEST_EXECUTABLE)

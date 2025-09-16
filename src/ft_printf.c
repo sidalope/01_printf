@@ -6,7 +6,7 @@
 /*   By: abisiani <abisiani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 22:35:09 by abisiani          #+#    #+#             */
-/*   Updated: 2025/09/15 12:00:51 by abisiani         ###   ########.fr       */
+/*   Updated: 2025/09/16 12:01:44 by abisiani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	parse_format_specifier(const char *format, va_list args)
 	if (*format == 'c')
 		len = print_c(va_arg(args, int));
 	else if (*format == 's')
-		len = print_s(va_arg(args, void *));
+		len = print_s(va_arg(args, char *));
 	else if (*format == 'p')
 		len = print_p(va_arg(args, void *));
 	else if (*format == 'd' || *format == 'i')
@@ -59,7 +59,7 @@ int	ft_printf(const char *format, ...)
 		{
 			err = parse_format_specifier(++format, args);
 			if (err < 0)
-				return (-1);
+				return (write(2, "error at %", 10), write(2, format, 1), -1);
 			count += err;
 		}
 		format++;
