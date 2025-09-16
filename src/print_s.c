@@ -6,7 +6,7 @@
 /*   By: abisiani <abisiani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 11:52:38 by abisiani          #+#    #+#             */
-/*   Updated: 2025/09/16 11:50:50 by abisiani         ###   ########.fr       */
+/*   Updated: 2025/09/16 12:14:36 by abisiani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	print_s(char *s)
 {
 	int		len;
-	
+
 	len = 0;
 	if (s == NULL)
 		return (-1);

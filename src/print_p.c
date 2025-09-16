@@ -6,7 +6,7 @@
 /*   By: abisiani <abisiani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 12:16:33 by abisiani          #+#    #+#             */
-/*   Updated: 2025/08/20 18:34:54 by abisiani         ###   ########.fr       */
+/*   Updated: 2025/09/16 12:14:10 by abisiani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int	print_p(void *p)
 {
 	int		i;
 	int		len;
-	int		strt;
+	int		started;
 
 	i = sizeof(size_t) * 2 - 1;
 	len = 2;
-	strt = 0;
+	started = 0;
 	if ((size_t)p == 0)
 	{
 		write(1, "(nil)", 5);
@@ -29,11 +29,11 @@ int	print_p(void *p)
 	write(1, "0x", 2);
 	while (i >= 0)
 	{
-		if (strt || "0123456789abcdef"[((size_t)p >> (i * 4)) & 0xF] != '0')
+		if (started || "0123456789abcdef"[((size_t)p >> (i * 4)) & 0xF] != '0')
 		{
 			write(1, &"0123456789abcdef"[((size_t)p >> (i * 4)) & 0xF], 1);
 			len++;
-			strt = 1;
+			started = 1;
 		}
 		i--;
 	}
