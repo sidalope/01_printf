@@ -5,13 +5,26 @@
 void test_null()
 {
 	int len_ft = 0;
-	int len = 0;
 	
-	ft_printf("~~~ Test NULL ~~~\n");
+	ft_printf("~~~ Test NULL ~~~");
 	
-	len_ft = ft_printf("NULL %s NULL\n", NULL);
-	// len = printf("NULL %s NULL\n", NULL);
-	assert(len_ft == len);
+	len_ft = ft_printf("\n1: %c", NULL);
+
+	len_ft = ft_printf("\n2: %s", NULL);
+
+	len_ft = ft_printf("\n3: %p", NULL);
+
+	len_ft = ft_printf("\n4: %d", NULL);
+
+	len_ft = ft_printf("\n5: %i", NULL);
+
+	len_ft = ft_printf("\n6: %u", NULL);
+
+	len_ft = ft_printf("\n7: %x", NULL);
+
+	len_ft = ft_printf("\n8: %X", NULL);
+
+	len_ft = ft_printf("\n9: %%", NULL);
 }
 
 void test_c()
@@ -19,8 +32,12 @@ void test_c()
 	int len_ft = 0;
 	int len = 0;
 	
-	ft_printf("~~~ Test c ~~~\n");
+	ft_printf("\n~~~ Test c ~~~\n");
 	
+	len_ft = ft_printf("%c\n", 'A');
+	len = printf("%c\n", 'A');
+	assert(len_ft == len);
+
 	len_ft = ft_printf("%c\n", 'A');
 	len = printf("%c\n", 'A');
 	assert(len_ft == len);
