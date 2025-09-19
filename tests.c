@@ -36,6 +36,7 @@ void test_c()
 	
 	len_ft = ft_printf("%c\n", 'A');
 	len = printf("%c\n", 'A');
+	printf("len: %i, len_ft: %i\n", len, len_ft);
 	assert(len_ft == len);
 
 	len_ft = ft_printf("%c\n", 'z');
@@ -451,13 +452,28 @@ void test_printf()
 
 	len_ft = ft_printf("J/ipsum/%c/%s/%p/%d/%i/%u/%x/%X/%%/!\n", 'J', "ipsum", (void*)NULL, -2147483647, 2147483647, 0U, 0x0, 0x0);
 	len = printf("J/ipsum/%c/%s/%p/%d/%i/%u/%x/%X/%%/!\n", 'J', "ipsum", (void*)NULL, -2147483647, 2147483647, 0U, 0x0, 0x0);
+	assert(len_ft == len);
 
 	printf("\n");
+}
+
+void test_inv_specifier()
+{
+	int len_ft = 0;
+	
+	ft_printf("~~~ Test Invalid Specifier ~~~\n");
+
+	len_ft = ft_printf("%y%y%y\n");
+	len_ft = ft_printf("%f%b%a%r\n", "NULL", "a", "a");
+	len_ft = ft_printf("%");
+	len_ft = ft_printf("%y%y%y%");
 }
 
 int	main(int argc, char* argv[])
 {
 	// char	*f_specs = "cspdiuxX%";
+	// if (err < 0)
+	// 	return (write(2, "error at %", 10), write(2, format, 1), -1);
 	if (argc >= 2)
 		ft_printf(argv[1]);
 	test_null();
@@ -470,6 +486,6 @@ int	main(int argc, char* argv[])
 	test_X();
 	test_perc();
 	test_printf();
-	
+	test_inv_specifier();
 	return (0);
 }

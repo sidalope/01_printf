@@ -6,12 +6,15 @@
 /*   By: abisiani <abisiani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 22:37:02 by abisiani          #+#    #+#             */
-/*   Updated: 2025/09/16 12:43:50 by abisiani         ###   ########.fr       */
+/*   Updated: 2025/09/17 16:34:56 by abisiani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include "../libft/libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+
+# include <stdarg.h>
+# include "../libft/libft.h"
 
 int		ft_printf(const char *format, ...);
 int		intlen(int n);
@@ -25,3 +28,5 @@ int		print_u(unsigned int n);
 int		print_x(unsigned int n);
 int		print_x_cap(unsigned int n);
 int		print_perc(void);
+
+#endif
